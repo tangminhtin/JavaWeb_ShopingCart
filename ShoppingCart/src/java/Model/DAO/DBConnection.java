@@ -1,51 +1,21 @@
 package Model.DAO;
 
-
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class DBConnection {
 
-    public Connection conn = null;
+    private static String url = "jdbc:sqlserver://localhost:1433;databaseName=DataXXX;";
+    private static String username = "sa";
+    private static String password = "123456";
 
-    public DBConnection() {
-
+    public static Connection lol() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sneaker", "root", "");
-            System.out.println("Connect successfully!");
-        } catch (SQLException ex) {
-            Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public Connection getConnect() {
-        return conn;
-    }
-
-    public boolean closeConnection() {
-        try {
-
-            conn.close();
-            return true;
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            return DriverManager.getConnection(url, username, password);
         } catch (Exception e) {
-            e.printStackTrace();
-
+            return null;
         }
-        return false;
     }
-
-    /**
-     * Test connection
-     * @param args
-     */
-//    public static void main(String[] args) {
-//        DBConnection connection = new DBConnection();
-//        System.out.println(connection.getConnect());
-//    }
-
 }
