@@ -15,7 +15,7 @@
             <form class="col-3">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
+                    <input type="text"  class="form-control" id="username" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>

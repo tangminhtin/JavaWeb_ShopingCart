@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     </head>
     <body>
-        <%@include file="./panner.jsp" %>
+        <%@include file="./panner.jsp"%>
 
         <div class="container">
             <div class="d-flex justify-content-center m-5">
