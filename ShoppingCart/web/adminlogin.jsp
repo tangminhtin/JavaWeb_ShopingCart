@@ -12,14 +12,14 @@
             <h1>Login</h1>
         </div>
         <div class="d-flex justify-content-center">
-            <form class="col-3">
+            <form class="col-3" <form action="LoginServlet" method="post">  >
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text"  class="form-control" id="username" aria-describedby="emailHelp">
+                    <input type="text" name="txtusername" class="form-control" id="username" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password">
+                    <input type="password" name="txtpassword" class="form-control" id="password">
                 </div>
                 <div class="d-grid">
                     <button type="submit" class="btn btn-primary">Login</button>
