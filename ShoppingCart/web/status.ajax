@@ -13,7 +13,7 @@ if ($(".dropdown").length) {
             swalWithBootstrapButtons
                 .fire({
                     title: "Are you sure?",
-                    text: "Do you really want to change your current language!",
+                    text: "Do you really want to change status of bill!",
                     icon: "warning",
                     confirmButtonText: "<i class='fas fa-check-circle me-1'></i> Yes, I am!",
                     cancelButtonText: "<i class='fas fa-times-circle me-1'></i> No, I'm Not",
@@ -34,7 +34,7 @@ if ($(".dropdown").length) {
                         Swal.fire({
                             icon: "success",
                             title: "Amazing!",
-                            text: "Your current language has been changed successfully.",
+                            text: "The status bill has been changed successfully.",
                             showConfirmButton: false,
                             timer: 1500,
                         });
