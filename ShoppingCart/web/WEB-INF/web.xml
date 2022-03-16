@@ -64,7 +64,14 @@
         <servlet-name>AddToCartServlet</servlet-name>
         <url-pattern>/AddToCartServlet</url-pattern>
     </servlet-mapping>
-   
+    <servlet>
+        <servlet-name>ProductController</servlet-name>
+        <servlet-class>Controller.User.ProductController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminLoginController</servlet-name>
+        <servlet-class>Controller.Admin.AdminLoginController</servlet-class>
+    </servlet>
     <session-config>
         <session-timeout>
             30

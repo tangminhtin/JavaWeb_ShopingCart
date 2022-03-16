@@ -1,3 +1,8 @@
+<%@page import="Model.Entities.Bill"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.DAO.BillDAO"%>
+<%@page import="Model.Entities.Staff"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,20 +20,32 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet" />
     </head>
     <body>
+        <%
+            Staff staff = (Staff) session.getAttribute("staff");
+        %>
+        <% if (staff != null) {%>
         <div class="container-fluid bg-secondary text-white">
             <div class="d-flex justify-content-center">
-                <p class="pe-5">Roll Number: </p>
-                <p class="pe-5">Full name: </p>
-                <p class="pe-5">Welcome: </p>
+                <p class="pe-5">Roll Number: <%=staff.getStaffId()%></p>
+                <p class="pe-5">Full name: <%=staff.getFirstName() + " " + staff.getLastName()%></p>
+                <p class="pe-5">Welcome: <%=staff.getUsername()%></p>
             </div>
         </div>
+        <%}%>
+
+        <%
+            BillDAO bdao = new BillDAO();
+            ArrayList<Bill> bills = bdao.getBills();
+        %>
         <div class="container-fluid mt-3">
             <div class="row">
                 <div class="col-2">
                     <div class="container">
-                        <a href="#" class="alert alert-secondary d-block m-0 mb-2">Customer</a>
-                        <a href="#" class="alert alert-secondary d-block m-0 mb-2">Product manager</a>
-                        <a href="#" class="alert alert-secondary d-block m-0 mb-2">Bill Manager</a>
+                        <div class="d-grid">
+                            <button href="#" class="alert alert-secondary d-block m-0 mb-2">Customer</button>
+                            <button href="#" class="alert alert-secondary d-block m-0 mb-2">Product manager</button>
+                            <button href="#" class="alert alert-secondary d-block m-0 mb-2">Bill Manager</button>
+                        </div>
                     </div>
                 </div>
                 <div class="col-10">
@@ -45,11 +62,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <% for (Bill b : bills) {%>
                                 <tr>
-                                    <th scope="row">10</th>
-                                    <td>Tung</td>
-                                    <td>07/08/2015</td>
-                                    <td>200</td>
+                                    <th scope="row"><%=b.getOrderId()%></th>
+                                    <td><%=b.getName()%></td>
+                                    <td><%=b.getOrderDate()%></td>
+                                    <td><%=b.getListPrice()%></td>
                                     <td>    
                                         <div class="dropdown">
                                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownStatus" data-bs-toggle="dropdown" aria-expanded="false"><span class="bi bi-hourglass-split"></span> <span>Wait</span></button>
@@ -68,6 +86,7 @@
                                     </td>
                                     <td><a href="./billdetail.jsp">Details</a></td>
                                 </tr>
+                                <%}%>
                             </tbody>
                         </table>
                     </div>

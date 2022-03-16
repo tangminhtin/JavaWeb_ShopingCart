@@ -12,7 +12,7 @@
             <h1>Login</h1>
         </div>
         <div class="d-flex justify-content-center">
-            <form action="AdminLoginController" class="col-3">
+            <form action="LoginController" class="col-3">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
                     <input name="username" type="text"  class="form-control" id="username" aria-describedby="emailHelp">
@@ -24,6 +24,10 @@
                 <div class="d-grid">
                     <button value="login" type="submit" class="btn btn-primary">Login</button>
                 </div>
+                <div class="mb-3 mt-3">
+                    <p>Not yet a Member <a href="./register.jsp">Register</a></p>
+                </div>
+
             </form>
         </div>
     </body>

@@ -6,16 +6,31 @@ import java.util.logging.Logger;
 
 public class DBConnection {
 
-    private static String url = "jdbc:sqlserver://localhost:1433;databaseName=DataXXX;";
-    private static String username = "sa";
-    private static String password = "123456";
+    private final String serverName = "TinTM";
+    private final String dbName = "SE1605";
+    private final String portNumber = "1433";
+    private final String instance = "";
+    private final String userID = "sa";
+    private final String password = "123456";
 
-    public static Connection lol() {
+    public Connection getConnection() {
         try {
+            String url = "jdbc:sqlserver://" + serverName + ":" + portNumber + "\\" + instance + ";databaseName=" + dbName;
+            if (instance == null || instance.trim().isEmpty()) {
+                url = "jdbc:sqlserver://" + serverName + ":" + portNumber + ";databaseName=" + dbName;
+            }
+
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            return DriverManager.getConnection(url, username, password);
-        } catch (Exception e) {
-            return null;
+            try {
+                return DriverManager.getConnection(url, userID, password);
+            } catch (SQLException ex) {
+                Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return null;
+
     }
+
 }
