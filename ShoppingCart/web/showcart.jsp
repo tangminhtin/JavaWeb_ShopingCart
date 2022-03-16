@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     </head>
     <body>
+        <%@include file="./panner.jsp" %>
+
         <div class="container">
             <div class="d-flex justify-content-center m-5">
                 <h1>My Cart</h1>
@@ -28,7 +30,7 @@
                         <tr>
                             <th scope="row">1</th>
                             <td>Dell</td>
-                            <td><input type="text" value="2"/></td>
+                            <td><input type="text" class="form-control w-25 p-1" placeholder="" value="2"></td>
                             <td>300</td>
                             <td>600</td>
                             <td><a href="#">Remove</a></td>
@@ -36,7 +38,7 @@
                         <tr>
                             <th scope="row">2</th>
                             <td>Dell</td>
-                            <td><input type="text" value="2"/></td>
+                            <td><input type="text" class="form-control w-25 p-1" placeholder="" value="2"></td>
                             <td>300</td>
                             <td>600</td>
                             <td><a href="#">Remove</a></td>

@@ -14,7 +14,7 @@
                 <div class="col-2">
                     <%@include file="./menu.jsp" %>
                 </div>
-                <div class="col-10">
+                <div class="col-6">
                     <%@include file="./content.jsp" %>
 
                 </div>
