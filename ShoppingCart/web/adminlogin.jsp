@@ -15,7 +15,7 @@
             <form class="col-3">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
+                    <input type="text"  class="form-control" id="username" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
@@ -25,7 +25,7 @@
                     <button type="submit" class="btn btn-primary">Login</button>
                 </div>
                 <div class="mb-3 mt-3">
-                    <p>Not yet a Member <a href="#">Register</a></p>
+                    <p>Not yet a Member <a href="./register.jsp">Register</a></p>
                 </div>
 
             </form>
