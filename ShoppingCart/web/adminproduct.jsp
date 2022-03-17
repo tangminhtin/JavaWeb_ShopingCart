@@ -39,6 +39,9 @@
         <%
             BillDAO bdao = new BillDAO();
             ArrayList<Bill> bills = bdao.getBills();
+            
+            ProductDAO productDAO = new ProductDAO();
+            ArrayList<Product> listProduct = productDAO.getAll();
 
         %>
         <div class="container-fluid mt-3">
@@ -46,7 +49,7 @@
                 <div class="col-2">
                     <div class="container">
                         <div class="d-grid">
-                          <a href="./admincustomer.jsp" class="alert alert-secondary d-block m-0 mb-2">Customer</a>
+                             <a href="./admincustomer.jsp" class="alert alert-secondary d-block m-0 mb-2">Customer</a>
                             <a href="./adminproduct.jsp" class="alert alert-secondary d-block m-0 mb-2">Product manager</a>
                             <a href="./admin.jsp" class="alert alert-secondary d-block m-0 mb-2">Bill Manager</a>
                         </div>
@@ -57,38 +60,26 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Bill ID</th>
-                                    <th scope="col">Customer Name</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Total</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">View</th>
+                                    <th scope="col">Product ID</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Model Year</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Brand Name</th>
+                                    <th scope="col">Category</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <% for (Bill b : bills) {%>
+                                <% for (Product b : listProduct) {%>
                                 <tr>
-                                    <th scope="row"><%=b.getOrderId()%></th>
-                                    <td><%=b.getName()%></td>
-                                    <td><%=b.getOrderDate()%></td>
+                                    <th scope="row"><%=b.getProductId()%></th>
+                                    <td><%=b.getProductName()%></td>
+                                    <td><%=b.getModelYear()%></td>
                                     <td><%=b.getListPrice()%></td>
-                                    <td>    
-                                        <div class="dropdown">
-                                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownStatus" data-bs-toggle="dropdown" aria-expanded="false"><span class="bi bi-hourglass-split"></span> <span>Wait</span></button>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownStatus">
-                                                <li>
-                                                    <a class="dropdown-item active" href="#"><span class="bi bi-hourglass-split"></span> <span>Wait</span></a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="#"><span class="bi bi-arrow-clockwise"></span> <span>Process</span></a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="#"><span class="bi bi-check-circle-fill"></span> <span>Done</span></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td><a href="./billdetail.jsp">Details</a></td>
+                                    <td><%=b.getBrandName()%></td>
+                                    <td><%=b.getCategoryName() %></td>
+                                    
+                                    
+        
                                 </tr>
                                 <%}%>
                             </tbody>

@@ -54,31 +54,28 @@ public class CustomerController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        String n = request.getParameter("username");
+        String p = request.getParameter("userpass");
+
+//        if (LoginDao.validate(n, p)) {
+//            RequestDispatcher rd = request.getRequestDispatcher("servlet2");
+//            rd.forward(request, response);
+//        } else {
+//            out.print("Sorry username or password error");
+//            RequestDispatcher rd = request.getRequestDispatcher("index.html");
+//            rd.include(request, response);
+//        }
+
+        out.close();
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }
+

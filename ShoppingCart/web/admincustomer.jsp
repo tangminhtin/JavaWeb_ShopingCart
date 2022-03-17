@@ -1,3 +1,5 @@
+<%@page import="Model.Entities.Customer"%>
+<%@page import="Model.DAO.CustomerDAO"%>
 <%@page import="Model.Entities.Product"%>
 <%@page import="Model.DAO.ProductDAO"%>
 <%@page import="Model.Entities.Bill"%>
@@ -37,8 +39,8 @@
         <%}%>
 
         <%
-            BillDAO bdao = new BillDAO();
-            ArrayList<Bill> bills = bdao.getBills();
+            CustomerDAO customerDAO = new CustomerDAO();
+            ArrayList<Customer> listCustomer = customerDAO.getAll();
 
         %>
         <div class="container-fluid mt-3">
@@ -46,7 +48,7 @@
                 <div class="col-2">
                     <div class="container">
                         <div class="d-grid">
-                          <a href="./admincustomer.jsp" class="alert alert-secondary d-block m-0 mb-2">Customer</a>
+                             <a href="./admincustomer.jsp" class="alert alert-secondary d-block m-0 mb-2">Customer</a>
                             <a href="./adminproduct.jsp" class="alert alert-secondary d-block m-0 mb-2">Product manager</a>
                             <a href="./admin.jsp" class="alert alert-secondary d-block m-0 mb-2">Bill Manager</a>
                         </div>
@@ -57,38 +59,34 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Bill ID</th>
-                                    <th scope="col">Customer Name</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Total</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">View</th>
+                                    <th scope="col">Customer ID</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Street</th>
+                                    <th scope="col">City</th>
+                                    <th scope="col">State</th>
+                                    <th scope="col">Zip code</th>
+                                    <th scope="col">User Name</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <% for (Bill b : bills) {%>
+                                <% for (Customer b : listCustomer) {%>
                                 <tr>
-                                    <th scope="row"><%=b.getOrderId()%></th>
-                                    <td><%=b.getName()%></td>
-                                    <td><%=b.getOrderDate()%></td>
-                                    <td><%=b.getListPrice()%></td>
-                                    <td>    
-                                        <div class="dropdown">
-                                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownStatus" data-bs-toggle="dropdown" aria-expanded="false"><span class="bi bi-hourglass-split"></span> <span>Wait</span></button>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownStatus">
-                                                <li>
-                                                    <a class="dropdown-item active" href="#"><span class="bi bi-hourglass-split"></span> <span>Wait</span></a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="#"><span class="bi bi-arrow-clockwise"></span> <span>Process</span></a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="#"><span class="bi bi-check-circle-fill"></span> <span>Done</span></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td><a href="./billdetail.jsp">Details</a></td>
+                                    <th scope="row"><%=b.getCustomerId()%></th>
+                                    <td><%=b.getFirstName()%></td>
+                                    <td><%=b.getLastName()%></td>
+                                    <td><%=b.getPhone()%></td>
+                                    <td><%=b.getEmail()%></td>
+                                    <td><%=b.getStreet()%></td>
+                                    <td><%=b.getCity()%></td>
+                                    <td><%=b.getState()%></td>
+                                    <td><%=b.getZipCode()%></td>
+                                    <td><%=b.getUserName()%></td>
+                                    
+                                    
+        
                                 </tr>
                                 <%}%>
                             </tbody>
