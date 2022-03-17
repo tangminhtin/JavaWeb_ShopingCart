@@ -1,3 +1,4 @@
+<%@page import="Model.Entities.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -8,6 +9,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     </head>
     <body>
+   
         <%@include file="./panner.jsp" %>
         <div class="container-fluid mt-3">
             <div class="row">

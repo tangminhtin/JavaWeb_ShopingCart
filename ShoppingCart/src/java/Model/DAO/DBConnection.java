@@ -6,26 +6,31 @@ import java.util.logging.Logger;
 
 public class DBConnection {
 
-    private String DB_NAME;
-    private String DB_PORT;
-    private String DB_USERNAME;
-    private String DB_PASSWORD;
-
-    public DBConnection(String DB_NAME, String DB_PORT, String DB_USERNAME, String DB_PASSWORD) {
-        this.DB_NAME = DB_NAME;
-        this.DB_PORT = DB_PORT;
-        this.DB_USERNAME = DB_USERNAME;
-        this.DB_PASSWORD = DB_PASSWORD;
-    }
+    private final String serverName = "TinTM";
+    private final String dbName = "SE1605";
+    private final String portNumber = "1433";
+    private final String instance = "";
+    private final String userID = "sa";
+    private final String password = "123456";
 
     public Connection getConnection() {
-        Connection conn = null;
         try {
+            String url = "jdbc:sqlserver://" + serverName + ":" + portNumber + "\\" + instance + ";databaseName=" + dbName;
+            if (instance == null || instance.trim().isEmpty()) {
+                url = "jdbc:sqlserver://" + serverName + ":" + portNumber + ";databaseName=" + dbName;
+            }
+
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:" + DB_PORT + ";databaseName=" + DB_NAME + ";user=" + DB_USERNAME + ";password=" + DB_PASSWORD + ";");
-        } catch (Exception e) {
-            e.printStackTrace();
+            try {
+                return DriverManager.getConnection(url, userID, password);
+            } catch (SQLException ex) {
+                Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return conn;
+        return null;
+
     }
+
 }
