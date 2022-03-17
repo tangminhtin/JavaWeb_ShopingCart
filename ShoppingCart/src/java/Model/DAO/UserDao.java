@@ -45,7 +45,7 @@ public class UserDao {
         String DB_USERNAME = "root";
         String DB_PASSWORD = "root";
         try {
-            DBConnection db = new DBConnection(DB_NAME, DB_PORT, DB_USERNAME, DB_PASSWORD);
+            DBConnection db = new DBConnection();
             conn = db.getConnection();
             callableStatement = conn.prepareCall("{call CheckLogin(?, ?)}");
             callableStatement.setString(1, this.userName);

@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 public class DBConnection {
 
-    private final String serverName = "TinTM";
+    private final String serverName = "localhost";
     private final String dbName = "SE1605";
     private final String portNumber = "1433";
     private final String instance = "";
@@ -31,6 +31,11 @@ public class DBConnection {
         }
         return null;
 
+    }
+    
+    public static void main(String[] args) {
+        DBConnection bConnection = new DBConnection();
+        System.out.println(bConnection.getConnection());
     }
 
 }
