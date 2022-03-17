@@ -22,6 +22,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet" />
     </head>
     <body>
+         <%@include file="./panner.jsp" %>
         <%
             Staff staff = (Staff) session.getAttribute("staff");
         %>
@@ -38,9 +39,6 @@
         <%
             BillDAO bdao = new BillDAO();
             ArrayList<Bill> bills = bdao.getBills();
-
-            ProductDAO productDAO = new ProductDAO();
-            ArrayList<Product> listProduct = productDAO.getAll();
 
         %>
         <div class="container-fluid mt-3">
